@@ -1,0 +1,101 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: antiquewhite;
+   
+}
+
+
+#container{
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-rows: repeat(1, auto);;
+}
+
+form{
+    display: grid;
+    grid-column: 1 / -1;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset{
+    display: grid;
+    background-color: #D0F0C0;
+    border: none;
+    padding: 50px;
+    width: 750px;
+    height: auto;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+input{
+    border-radius: 10px;
+    padding: 8px;
+    border: none;
+    border-bottom: solid 2px #32de84;
+}
+
+button{
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    border-bottom: solid 2px #32de84;
+}
+
+button:focus{
+    border: 2px solid #32de84;
+}
+
+
+#title{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row: 2;
+
+}
+
+#container-book{
+    display: flex;
+    flex-direction: column;
+}
+#savedBook{
+    display: flex;
+    flex-direction: column;
+}
+
+h3{
+    color: black;
+    background-color: white;
+    background-clip: text;
+}
+
+#trash{
+    display: flex;
+    background-color: #32de84;
+}
+
+#library{
+    display: flex;
+}
+
+#library2{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    
+}
+
+#lib{
+    display: flex;
+    justify-content: end;
+}
+
+@media (max-width: 768px){
+
+    fieldset{
+        width: 270px;;
+    }
+}
