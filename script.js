@@ -23,7 +23,7 @@ function collectBookInfo() {
     bookInfo.textContent = `Book: ${library.Name} Author: ${library.Author} Pages: ${library.Pages}`;
 
     let img= document.createElement("img");
-    img.src = '/images/icons8-lixo.svg';
+    img.src = 'images/icons8-lixo.svg';
     img.width = 40;
     img.style.cursor = 'pointer';
 
