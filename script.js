@@ -11,19 +11,10 @@ class Library {
         let newName = document.querySelector("#bookName").value;
         let newAuthor = document.querySelector("#author").value;
         let newPages = document.querySelector("#pages").value;
-
-<<<<<<< HEAD
-    let img= document.createElement("img");
-    img.src = 'images/icons8-lixo.svg';
-    img.width = 40;
-    img.style.cursor = 'pointer';
-=======
         if (newName === "" || newAuthor === "" || newPages === ""){
             alert("Fill all input fields!");
             return false;
         }
->>>>>>> 094bb87 (Update using class logic)
-
         this.Name = newName;
         this.Author = newAuthor;
         this.Pages = newPages;   
