@@ -1,74 +1,81 @@
-const library = {
-    Name: "",
-    Author: "",
-    Pages: "",
-};
+class Library {
 
-function collectBookInfo() {
-    let newName = document.querySelector("#bookName").value;
-    let newAuthor = document.querySelector("#author").value;
-    let newPages = document.querySelector("#pages").value;
-
-   
-    if (newName === "" || newAuthor === "" || newPages === "") {
-        alert("Por favor, preencha todos os campos!");
-        return false; 
+    constructor(Name, Author, Pages){
+        this.Name = Name;
+        this.Author = Author;
+        this.Pages = Pages;
+        this.bookCount = 0;
     }
-   
-    library.Name = newName;
-    library.Author = newAuthor;
-    library.Pages = newPages;
 
-    let bookInfo = document.createElement("h3");
-    bookInfo.textContent = `Book: ${library.Name} Author: ${library.Author} Pages: ${library.Pages}`;
+    collectBookInfo(){
+        let newName = document.querySelector("#bookName").value;
+        let newAuthor = document.querySelector("#author").value;
+        let newPages = document.querySelector("#pages").value;
 
+<<<<<<< HEAD
     let img= document.createElement("img");
     img.src = 'images/icons8-lixo.svg';
     img.width = 40;
     img.style.cursor = 'pointer';
+=======
+        if (newName === "" || newAuthor === "" || newPages === ""){
+            alert("Fill all input fields!");
+            return false;
+        }
+>>>>>>> 094bb87 (Update using class logic)
 
-    let savedBook = document.querySelector("#savedBook");
-    savedBook.appendChild(bookInfo);
-    bookInfo.appendChild(img);
+        this.Name = newName;
+        this.Author = newAuthor;
+        this.Pages = newPages;   
 
-    document.querySelector("#bookName").value = "";
-    document.querySelector("#author").value = "";
-    document.querySelector("#pages").value = "";
-    
-    img.addEventListener('click', function(){
-        bookInfo.remove();
+        return true;
+    }
 
-        bookCount--;
-});
+    displayBook(){
+        const bookInfo = document.createElement("div");
+        bookInfo.textContent = `Book: ${this.Name} Author: ${this.Author} Pags: ${this.Pages}`;
+        const img = document.createElement("img");
+        img.src = "/images/icons8-lixo.svg";
+        img.width = 40;
+        img.style.cursor = 'pointer';
 
-    return true; 
-}
+        let myBook = document.querySelector("#savedBook");
+        myBook.appendChild(bookInfo);
+        bookInfo.appendChild(img);
 
-let bookCount = 0;
+        document.querySelector("#bookName").value = "";
+        document.querySelector("#author").value = "";
+        document.querySelector("#pages").value = "";
 
-const btn = document.querySelector("#btn");
+        img.addEventListener("click", () =>{   
+            bookInfo.remove();
+            this.bookCount--;
+        
+        });
+    }
 
-btn.addEventListener("click", function() {
+    buttons(){
+    const btn = document.querySelector("#btn");
+    btn.addEventListener("click", (e) =>{
+
+        e.preventDefault();
     let maxBooks = 10;
-
-    if (bookCount >= maxBooks) {
-        alert("Você atingiu o número máximo de livros");
+    if (this.bookCount === maxBooks){
+        alert("Max books number reached!");
         btn.disabled = true;
         return;
     }
-    
-    
-    const success = collectBookInfo();
-    if (success) {
-        bookCount++;
-        
-       
-        if (bookCount >= maxBooks) {
-            alert("Você atingiu o número máximo de livros");
-            btn.disabled = true;
-        }
+
+    const sucess = this.collectBookInfo();
+    if (sucess){
+        this.bookCount++;
+        this.displayBook();
     }
-});
+    })
+    }
+};
 
 
+const run = new Library("","","");
 
+run.buttons();
